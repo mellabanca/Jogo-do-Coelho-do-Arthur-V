@@ -29,7 +29,7 @@ class Rope
       this.body = null;
     }
     
-    show()
+    showdaoliviarodrigo()
     {
       if(this.body!=null)
         {
@@ -43,7 +43,7 @@ class Rope
     drawVertices(vertices) 
     {
       beginShape();
-      fill('#FFF717')
+      fill('red')
       noStroke();
       
       for (let i = 0; i < vertices.length; i++) 
