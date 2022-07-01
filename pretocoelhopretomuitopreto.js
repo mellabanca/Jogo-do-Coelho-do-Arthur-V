@@ -17,4 +17,7 @@ stiffness: 0.01
 });
 World.add(engine.world, this.preto);
 }
+budha(){
+World.remove(engine.world, this.preto);
+}
 }

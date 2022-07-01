@@ -24,7 +24,7 @@ class Rope
       
     }
     
-    break()
+      aarteeumaexplosao()
     { //Matter.Composite.clear(this.rope,true);
       this.body = null;
     }
