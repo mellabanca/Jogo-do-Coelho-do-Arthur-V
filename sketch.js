@@ -20,6 +20,8 @@ var minkV3;
 var budhadespertada;
 var onzenabanheira;
 var bob;
+var maxquandoperdeuaon;
+var naomeestressa, quebrandoossos, criseexistencial, sucrilhosebomdemais, criancaquandochorapqobalaosaiuvoando;
 
 function preload(){
   minkV2 = loadImage("Rabbit-01.png");
@@ -27,10 +29,16 @@ function preload(){
   ovoazul = loadImage("Ovo.png");
   onzenabanheira = loadAnimation("blink_1.png","blink_2.png","blink_3.png");
   bob = loadAnimation("eat_0.png","eat_1.png","eat_2.png","eat_3.png","eat_4.png");
-
+  maxquandoperdeuaon = loadAnimation("sad_1.png","sad_2.png","sad_3.png");
+  naomeestressa = loadSound("sound1.mp3");
+  quebrandoossos = loadSound("rope_cut.mp3");
+  criseexistencial = loadSound("sad.wav");
+  sucrilhosebomdemais = loadSound("eating_sound.mp3");
+  criancaquandochorapqobalaosaiuvoando = loadSound("air.wav");
   onzenabanheira.playing = true;
   bob.playing = true;
-
+  maxquandoperdeuaon.playing = true;
+  maxquandoperdeuaon.looping = false;
   bob.looping = false;
 }
 
@@ -58,6 +66,7 @@ function setup()
   minkV3.scale = 0.2;
   minkV3.addAnimation("piscando", onzenabanheira);
   minkV3.addAnimation("comendo", bob);
+  minkV3.addAnimation("maxquandoperdeuaon", maxquandoperdeuaon);
   minkV3.changeAnimation("piscando");
   budhadespertada = createImg("cut_button.png");
   budhadespertada.position(220, 30);
@@ -72,7 +81,16 @@ function draw()
   Engine.update(engine);
   minkV1.showdaoliviarodrigo();
   bunny.eletric();
-   image(ovoazul,linguadegato.position.x, linguadegato.position.y, 40,55);
+  if(linguadegato !== null){
+  image(ovoazul,linguadegato.position.x, linguadegato.position.y, 40,55);
+  }
+  if(maxelucas(linguadegato,minkV3)=== true){
+  minkV3.changeAnimation("comendo");
+  }
+  if(linguadegato !== null && linguadegato.position.y >= 650){
+  minkV3.changeAnimation("maxquandoperdeuaon");
+  linguadegato = null;
+  }
   drawSprites();
 }
 
@@ -81,3 +99,16 @@ minkV1.aarteeumaexplosao();
 aculpaedobolsonaro.budha();
 aculpaedobolsonaro = null;
 } 
+
+function maxelucas(body,sprite){
+if(body !== null){
+var eueainternet = dist(body.position.x,body.position.y,sprite.position.x,sprite.position.y);
+if(eueainternet <= 80){
+World.remove(engine.world, linguadegato);
+linguadegato = null;
+return true;
+}else{
+return false;
+}
+}
+}
